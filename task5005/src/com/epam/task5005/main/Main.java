@@ -38,10 +38,10 @@ public class Main {
             input = scanner.nextLine();
             GiftBuilder giftBuilder = null;
             switch (input) {
-                case "m" -> giftBuilder = new MaleGiftBuilder();
-                case "w" -> giftBuilder = new FemaleGiftBuilder();
-                case "k" -> giftBuilder = new KidsGiftBuilder();
-                case "x" -> System.exit(0);
+                case "m", "M" -> giftBuilder = new MaleGiftBuilder();
+                case "w", "W" -> giftBuilder = new FemaleGiftBuilder();
+                case "k", "K" -> giftBuilder = new KidsGiftBuilder();
+                case "x", "X" -> System.exit(0);
                 default -> {
                     System.out.println("Incorrect input!");
                     System.out.println(line);
