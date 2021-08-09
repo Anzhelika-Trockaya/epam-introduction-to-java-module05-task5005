@@ -13,10 +13,7 @@ package com.epam.task5005.main;
 //подарок). Составляющими целого подарка являются сладости и упаковка.
 
 import com.epam.task5005.*;
-import com.epam.task5005.giftBuilder.FemaleGiftBuilder;
-import com.epam.task5005.giftBuilder.GiftBuilder;
-import com.epam.task5005.giftBuilder.KidsGiftBuilder;
-import com.epam.task5005.giftBuilder.MaleGiftBuilder;
+import com.epam.task5005.giftBuilder.*;
 
 import java.util.Scanner;
 
@@ -36,21 +33,15 @@ public class Main {
         while (true) {
             System.out.print(menu);
             input = scanner.nextLine();
-            GiftBuilder giftBuilder = null;
-            switch (input) {
-                case "m", "M" -> giftBuilder = new MaleGiftBuilder();
-                case "w", "W" -> giftBuilder = new FemaleGiftBuilder();
-                case "k", "K" -> giftBuilder = new KidsGiftBuilder();
-                case "x", "X" -> System.exit(0);
-                default -> {
-                    System.out.println("Incorrect input!");
-                    System.out.println(line);
-                    continue;
-                }
+            if(input.equalsIgnoreCase("x")){
+                System.exit(0);
             }
-            constructor.setGiftBuilder(giftBuilder);
+
+            constructor.setGiftBuilder(input);
             constructor.constructGift();
-            System.out.println(constructor.getGift());
+            Gift gift = constructor.getGift();
+
+            System.out.println(gift);
             System.out.println(line);
         }
     }
