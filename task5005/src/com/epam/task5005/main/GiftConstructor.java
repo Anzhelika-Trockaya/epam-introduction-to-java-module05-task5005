@@ -8,22 +8,25 @@ import com.epam.task5005.giftBuilder.*;
 
 public class GiftConstructor {
     private GiftBuilder giftBuilder;
-    public void setGiftBuilder(GiftBuilder giftBuilder){
-        this.giftBuilder=giftBuilder;
+
+    public void setGiftBuilder(GiftBuilder giftBuilder) {
+        this.giftBuilder = giftBuilder;
     }
-    public void setGiftBuilder(String giftBuilder){
+
+    public void setGiftBuilder(String giftBuilder) {
         switch (giftBuilder) {
             case "m", "M" -> setGiftBuilder(new MaleGiftBuilder());
             case "w", "W" -> setGiftBuilder(new FemaleGiftBuilder());
             case "k", "K" -> setGiftBuilder(new KidsGiftBuilder());
-            default -> throw new RuntimeException(giftBuilder+" is unknown type of gift!");
+            default -> throw new IllegalArgumentException(giftBuilder + " is unknown type of gift!");
         }
     }
-    public Gift getGift(){
+
+    public Gift getGift() {
         return giftBuilder.getGift();
     }
 
-    public void constructGift(){
+    public void constructGift() {
         giftBuilder.createNewGift();
         giftBuilder.buildSweets();
         giftBuilder.buildWrapping();

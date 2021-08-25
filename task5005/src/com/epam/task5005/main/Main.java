@@ -20,11 +20,12 @@ public class Main {
     public static void main(String[] args) {
         String menu = """
                 If you want construct a gift for ...
-                man - press m
-                woman - press w
-                kid - press k
-                To exit - press x
-                """;
+                man - enter m
+                woman - enter w
+                kid - enter k
+                
+                To exit - enter x
+                Enter here: """;
         String line = "-----------------------------------------------------------------------------------------------";
         Scanner scanner = new Scanner(System.in);
         GiftConstructor constructor = new GiftConstructor();
@@ -32,16 +33,20 @@ public class Main {
         while (true) {
             System.out.print(menu);
             input = scanner.nextLine();
-            if(input.equalsIgnoreCase("x")){
+            if (input.equalsIgnoreCase("x")) {
                 System.exit(0);
             }
 
-            constructor.setGiftBuilder(input);
-            constructor.constructGift();
-            Gift gift = constructor.getGift();
+            try {
+                constructor.setGiftBuilder(input);
+                constructor.constructGift();
+                Gift gift = constructor.getGift();
 
-            System.out.println(gift);
-            System.out.println(line);
+                System.out.println(gift);
+            } catch (IllegalArgumentException exception) {
+                System.out.println("Gift not created! " + exception.getMessage());
+            }
+            System.out.println(line+"\n");
         }
     }
 }
