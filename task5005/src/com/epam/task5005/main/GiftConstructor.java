@@ -1,4 +1,4 @@
-package com.epam.task5005;
+package com.epam.task5005.main;
 
 import com.epam.task5005.giftBuilder.*;
 

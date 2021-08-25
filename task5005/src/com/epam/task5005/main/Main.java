@@ -12,7 +12,6 @@ package com.epam.task5005.main;
 //Вариант B. Подарки. Реализовать приложение, позволяющее создавать подарки (объект, представляющий собой
 //подарок). Составляющими целого подарка являются сладости и упаковка.
 
-import com.epam.task5005.*;
 import com.epam.task5005.giftBuilder.*;
 
 import java.util.Scanner;
